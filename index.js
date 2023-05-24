@@ -3,21 +3,21 @@ const data = [
     id: "1",
     img: "assets/images/shirt.jpg",
     title: "T-shirt",
-    dateOfCreate: "11.02.2023",
+    dateOfCreate: "1.05.2023",
     category: "T-shirts 1",
   },
   {
     id: "1",
     img: "assets/images/shirt.jpg",
     title: "T-shirt",
-    dateOfCreate: "11.02.2023",
+    dateOfCreate: "30.04.2023",
     category: "T-shirts 1",
   },
   {
     id: "1",
     img: "assets/images/shirt.jpg",
     title: "T-shirt",
-    dateOfCreate: "11.02.2023",
+    dateOfCreate: "1.01.2023",
     category: "T-shirts 1",
   },
   {
@@ -136,7 +136,7 @@ const data = [
     id: "2",
     img: "assets/images/shirt.jpg",
     title: "T-shirt",
-    dateOfCreate: "11.02.2023",
+    dateOfCreate: "24.05.2023",
     category: "T-shirts 2",
   },
 ];
@@ -145,6 +145,23 @@ const categories = Array.from(new Set(data.map((x) => x.category)));
 
 const main = document.querySelector(".main");
 const categoriesLinks = document.querySelector(".ul");
+
+const getDayInfo = (str) => {
+  const date = new Date(str.split(".").reverse().join("."));
+  const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDate();
+  const weekNum = Math.ceil((2 + Math.floor(date.getDate() - firstDay)) / 7);
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const res = date
+    .toLocaleDateString("ru-RU", options)
+    .replace("г.", "года")
+    .replace(date.getDate(), weekNum + " неделя ");
+  return res;
+};
 
 const addLink = (name) => {
   const li = document.createElement("li");
@@ -184,7 +201,7 @@ const addCard = (item, parent) => {
   const title = document.createElement("h4");
   title.textContent = item.title;
   const date = document.createElement("p");
-  date.textContent = item.dateOfCreate;
+  date.textContent = getDayInfo(item.dateOfCreate);
   const btn = document.createElement("button");
   btn.textContent = "Купить";
   btn.className = "btn btn_buy";
