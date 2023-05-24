@@ -1,0 +1,79 @@
+:root {
+  --accent-color: #8388cf;
+  --primary-bg-color: #92a4fd;
+  --accent-dark-color: #7079fe;
+  --accent-light-color: #9ac5fe;
+  --btn-color: #b0c5fd;
+  --link-active-color: #2f281e;
+  --main-light-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+
+.header {
+  display: flex;
+  height: 80px;
+  background-color: var(--accent-color);
+}
+
+.header__content {
+  width: 1440px;
+  max-width: 100%;
+  padding: 0 40px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.ul {
+  display: flex;
+}
+
+.li {
+  padding: 0 20px;
+}
+
+.link {
+  color: var(--main-light-color);
+}
+
+.link:hover {
+  color: var(--link-active-color);
+}
+
+.btn_theme {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--btn-color);
+  border: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}
