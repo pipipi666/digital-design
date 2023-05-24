@@ -143,8 +143,21 @@ const data = [
 
 const categories = Array.from(new Set(data.map((x) => x.category)));
 
+const body = document.querySelector("body");
 const main = document.querySelector(".main");
 const categoriesLinks = document.querySelector(".ul");
+const btnUp = document.querySelector(".btn_up");
+
+const onScroll = () => {
+  btnUp.style.display = window.scrollY === 0 ? "none" : "flex";
+};
+
+const goUp = () => {
+  scrollTo(0, 0);
+};
+
+window.addEventListener("scroll", onScroll);
+btnUp.addEventListener("click", goUp);
 
 const getDayInfo = (str) => {
   const date = new Date(str.split(".").reverse().join("."));

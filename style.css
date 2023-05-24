@@ -93,6 +93,18 @@ body {
   border-radius: 30px;
 }
 
+.btn_up {
+  display: none;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
+
+.btn_up__img {
+  width: 24px;
+  height: 24px;
+}
+
 .btn_buy:hover {
   background-color: var(--primary-bg-color);
 }
