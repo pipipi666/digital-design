@@ -142,19 +142,33 @@ const data = [
 ];
 
 const categories = Array.from(new Set(data.map((x) => x.category)));
+let isDarkTheme = false;
 
 const body = document.querySelector("body");
 const main = document.querySelector(".main");
+const footer = document.querySelector(".footer");
 const categoriesLinks = document.querySelector(".ul");
+const categoriesLinksFooter = document.querySelector(".footer__ul");
 const btnUp = document.querySelector(".btn_up");
 const popup = document.querySelector(".popup__wrapper");
 const form = document.querySelector(".form");
 const message = document.querySelector(".message");
 const btnMessage = document.querySelector(".btn_msg");
 const btnClose = document.querySelector(".btn_close");
+const btnTheme = document.querySelector(".btn_theme");
 const countInput = document.getElementById("count");
 const colorDefault = document.getElementById("white");
 const textarea = document.querySelector(".textarea");
+const imgTheme = document.querySelector(".img_theme");
+
+const switchTheme = () => {
+  isDarkTheme = !isDarkTheme;
+  localStorage.setItem("pi-dark-theme", isDarkTheme);
+  body.classList.toggle("dark");
+  imgTheme.src = isDarkTheme
+    ? " assets/icons/moon.png"
+    : "assets/icons/sun.svg";
+};
 
 const onSubmit = (e) => {
   e.preventDefault();
@@ -219,6 +233,8 @@ const addLink = (name) => {
   link.href = `#${name}`;
   li.append(link);
   categoriesLinks.append(li);
+  const footerLi = li.cloneNode(true);
+  categoriesLinksFooter.append(footerLi);
 };
 
 const addCategory = (name) => {
@@ -270,3 +286,8 @@ countInput.addEventListener("input", onCountInput);
 form.addEventListener("submit", onSubmit);
 btnMessage.addEventListener("click", closePopup);
 btnClose.addEventListener("click", closePopup);
+btnTheme.addEventListener("click", switchTheme);
+
+if (localStorage.getItem("pi-dark-theme") === "true") {
+  switchTheme();
+}

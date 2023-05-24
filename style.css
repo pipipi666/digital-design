@@ -1,12 +1,16 @@
 :root {
   --accent-color: #8388cf;
   --primary-bg-color: #92a4fd;
-  --accent-dark-color: #7079fe;
-  --accent-light-color: #9ac5fe;
   --btn-color: #b0c5fd;
   --link-active-color: #2f281e;
   --main-light-color: #ffffff;
   --btn-active: #767ab3;
+  --footer-color: #e3ebff;
+
+  --dark-header: #2a2e3d;
+  --dark-btn: #494c59;
+  --dark-link-hover: #adadad;
+  --dark-buy-color: #3a3d46;
 
   --br: 30px;
 }
@@ -37,10 +41,6 @@ html {
 
 body {
   font-family: Montserrat, sans-serif;
-}
-
-.h2 {
-  color: var(--link-active-color);
 }
 
 .header {
@@ -120,6 +120,11 @@ body {
   height: 24px;
 }
 
+.img_theme {
+  height: 24px;
+  width: 24px;
+}
+
 .main {
   width: 1440px;
   max-width: 100%;
@@ -196,6 +201,7 @@ body {
   border: 1px solid var(--link-active-color);
   padding: 0 10px;
   text-align: center;
+  background: transparent;
 }
 
 .radio__wrapper {
@@ -207,6 +213,7 @@ body {
 .textarea {
   resize: none;
   padding: 10px 20px;
+  background: transparent;
 }
 
 .message {
@@ -216,4 +223,55 @@ body {
 
 .btn_msg {
   margin: 20px auto 0;
+}
+
+.footer {
+  background-color: var(--footer-color);
+  padding: 100px;
+  text-align: center;
+}
+
+.footer .link {
+  color: var(--btn-active);
+}
+
+.dark {
+  color: var(--main-light-color);
+  background-color: var(--dark-btn);
+}
+
+.dark .header {
+  background-color: var(--dark-header);
+}
+
+.dark .btn_theme,
+.dark .popup {
+  background-color: var(--dark-btn);
+}
+
+.dark .btn_up,
+.dark .btn_buy {
+  background-color: var(--dark-header);
+}
+
+.dark .btn_buy:hover {
+  background-color: var(--dark-buy-color);
+}
+
+.dark .textarea,
+.dark .input {
+  color: var(--main-light-color);
+  border: 1px solid var(--main-light-color);
+}
+
+.dark .link:hover {
+  color: var(--dark-link-hover);
+}
+
+.dark .footer {
+  background-color: var(--dark-buy-color);
+}
+
+.dark .footer .link {
+  color: var(--footer-color);
 }
