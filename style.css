@@ -27,12 +27,15 @@ button {
   font: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Montserrat, sans-serif;
 }
 
 .h2 {
-  margin: 40px 0;
   color: var(--link-active-color);
 }
 
@@ -102,7 +105,14 @@ body {
   width: 1440px;
   max-width: 100%;
   margin: auto;
-  padding: 0 40px;
+  padding: 40px;
+}
+
+.cards {
+  margin: 40px 0;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .card {
