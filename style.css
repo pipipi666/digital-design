@@ -300,6 +300,14 @@ body {
   .cards {
     width: 325px;
   }
+
+  .popup {
+    padding: 20px;
+  }
+
+  .form {
+    gap: 10px;
+  }
 }
 
 @media screen and (max-width: 425px) {
