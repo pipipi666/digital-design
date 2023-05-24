@@ -147,6 +147,27 @@ const body = document.querySelector("body");
 const main = document.querySelector(".main");
 const categoriesLinks = document.querySelector(".ul");
 const btnUp = document.querySelector(".btn_up");
+const popup = document.querySelector(".popup__wrapper");
+const form = document.querySelector(".form");
+const message = document.querySelector(".message");
+const btnMessage = document.querySelector(".btn_msg");
+const btnClose = document.querySelector(".btn_close");
+const countInput = document.getElementById("count");
+const colorDefault = document.getElementById("white");
+const textarea = document.querySelector(".textarea");
+
+const onSubmit = (e) => {
+  e.preventDefault();
+  message.style.display = "block";
+  form.style.display = "none";
+};
+
+const onCountInput = () => {
+  countInput.value = countInput.value.toString().replace(/[^0-9]/g, "");
+  if (countInput.value === "0") {
+    countInput.value = 1;
+  }
+};
 
 const onScroll = () => {
   btnUp.style.display = window.scrollY === 0 ? "none" : "flex";
@@ -156,8 +177,22 @@ const goUp = () => {
   scrollTo(0, 0);
 };
 
-window.addEventListener("scroll", onScroll);
-btnUp.addEventListener("click", goUp);
+const openPopup = () => {
+  popup.style.display = "flex";
+  body.style.overflow = "hidden";
+  body.style.height = "100vh";
+  message.style.display = "none";
+  form.style.display = "flex";
+  textarea.value = "";
+  countInput.value = "1";
+  colorDefault.checked = true;
+};
+
+const closePopup = (e) => {
+  e.preventDefault();
+  popup.style.display = "none";
+  body.style.overflow = "auto";
+};
 
 const getDayInfo = (str) => {
   const date = new Date(str.split(".").reverse().join("."));
@@ -218,6 +253,7 @@ const addCard = (item, parent) => {
   const btn = document.createElement("button");
   btn.textContent = "Купить";
   btn.className = "btn btn_buy";
+  btn.addEventListener("click", openPopup);
   cardInfo.append(title, date, btn);
   card.append(img, cardInfo);
   parent.append(card);
@@ -227,3 +263,10 @@ categories.map((category) => {
   addLink(category);
   addCategory(category);
 });
+
+window.addEventListener("scroll", onScroll);
+btnUp.addEventListener("click", goUp);
+countInput.addEventListener("input", onCountInput);
+form.addEventListener("submit", onSubmit);
+btnMessage.addEventListener("click", closePopup);
+btnClose.addEventListener("click", closePopup);

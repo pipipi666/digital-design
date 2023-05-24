@@ -19,15 +19,64 @@
         <nav class="nav">
           <ul class="ul"></ul>
         </nav>
-        <button class="btn btn_theme">
+        <button class="btn btn_theme" aria-label="theme">
           <img src="assets/icons/sun.svg" alt="" />
         </button>
       </div>
     </header>
     <main class="main"></main>
-    <button class="btn btn_theme btn_up">
+    <button class="btn btn_theme btn_up" aria-label="top of the page">
       <img class="btn_up__img" src="assets/icons/up.png" alt="" />
     </button>
+    <div class="popup__wrapper">
+      <div class="popup">
+        <form class="form" action="">
+          <div class="input__wrapper">
+            <label class="text_b" for="count">Количество</label>
+            <input
+              class="input"
+              id="count"
+              type="text"
+              value="1"
+              inputmode="numeric"
+              pattern="\d*"
+            />
+          </div>
+          <p class="text_b">Цвет</p>
+          <div class="radio__wrapper">
+            <input type="radio" name="color" id="white" checked />
+            <label for="white">Белый</label>
+          </div>
+          <div class="radio__wrapper">
+            <input type="radio" name="color" id="black" />
+            <label for="black">Черный</label>
+          </div>
+          <div class="radio__wrapper">
+            <input type="radio" name="color" id="red" />
+            <label for="red">Красный</label>
+          </div>
+          <div class="radio__wrapper">
+            <input type="radio" name="color" id="green" />
+            <label for="green">Зеленый</label>
+          </div>
+          <label class="text_b" for="comment">Комментарий</label>
+          <textarea
+            class="textarea"
+            name="comment"
+            id="comment"
+            cols="30"
+            rows="6"
+            maxlength="2000"
+          ></textarea>
+          <button class="btn btn_buy" type="submit">Купить</button>
+          <button class="btn btn_buy btn_close">Закрыть</button>
+        </form>
+        <div class="message">
+          <p>Товар куплен!</p>
+          <button class="btn btn_buy btn_msg" type="submit">Ок</button>
+        </div>
+      </div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

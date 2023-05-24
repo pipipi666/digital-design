@@ -7,6 +7,8 @@
   --link-active-color: #2f281e;
   --main-light-color: #ffffff;
   --btn-active: #767ab3;
+
+  --br: 30px;
 }
 
 * {
@@ -23,7 +25,9 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+textarea,
+input {
   font: inherit;
 }
 
@@ -93,6 +97,15 @@ body {
   background-color: var(--accent-color);
   color: var(--main-light-color);
   border-radius: 30px;
+  padding: 0 40px;
+}
+
+.btn_buy:hover {
+  background-color: var(--primary-bg-color);
+}
+
+.btn_buy:active {
+  background-color: var(--btn-active);
 }
 
 .btn_up {
@@ -105,14 +118,6 @@ body {
 .btn_up__img {
   width: 24px;
   height: 24px;
-}
-
-.btn_buy:hover {
-  background-color: var(--primary-bg-color);
-}
-
-.btn_buy:active {
-  background-color: var(--btn-active);
 }
 
 .main {
@@ -132,7 +137,7 @@ body {
 .card {
   width: 300px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
+  border-radius: var(--br);
   overflow: hidden;
 }
 
@@ -147,4 +152,68 @@ body {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+.popup__wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: var(--main-light-color);
+  padding: 40px;
+  border-radius: var(--br);
+}
+
+.form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input__wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.text_b {
+  font-weight: 600;
+}
+
+.input {
+  height: 35px;
+  width: 50px;
+  border-radius: var(--br);
+  border: 1px solid var(--link-active-color);
+  padding: 0 10px;
+  text-align: center;
+}
+
+.radio__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.textarea {
+  resize: none;
+  padding: 10px 20px;
+}
+
+.message {
+  display: none;
+  text-align: center;
+}
+
+.btn_msg {
+  margin: 20px auto 0;
 }
